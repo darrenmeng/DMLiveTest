@@ -15,6 +15,17 @@
 		120E64CC202C3DB100424585 /* DMLiveTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E64CB202C3DB100424585 /* DMLiveTestTests.swift */; };
 		120E64D7202C403C00424585 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E64D6202C403C00424585 /* MainViewController.swift */; };
 		120E64D9202C482C00424585 /* AVCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E64D8202C482C00424585 /* AVCaptureViewController.swift */; };
+		122D9CD6206F88C000A03AF7 /* AVSampleBufferDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D9CD5206F88C000A03AF7 /* AVSampleBufferDisplayView.swift */; };
+		122D9CD9206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D9CD8206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift */; };
+		122D9CDB206F97E000A03AF7 /* AVVdeioDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D9CDA206F97E000A03AF7 /* AVVdeioDecoder.swift */; };
+		1268EB5920EB704400C56DED /* mtv.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 1268EB5820EB704400C56DED /* mtv.h264 */; };
+		1268EB6720EF659E00C56DED /* asd.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 1268EB6620EF659D00C56DED /* asd.h264 */; };
+		1268EB6D20EF78A800C56DED /* demo.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 1268EB6C20EF78A800C56DED /* demo.h264 */; };
+		127B2B8A205FB70C00F057FE /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127B2B89205FB70C00F057FE /* UIWindow+Extension.swift */; };
+		1284104820F49D1000AAFC64 /* abc.h264 in Resources */ = {isa = PBXBuildFile; fileRef = 1284104720F49D1000AAFC64 /* abc.h264 */; };
+		128E7B162057B92C009E3D40 /* AVVdeioEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128E7B152057B92C009E3D40 /* AVVdeioEncoder.swift */; };
+		12D0F300204E77B70026D5B3 /* AVCaptureExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D0F2FF204E77B70026D5B3 /* AVCaptureExtractor.swift */; };
+		12F06590208720C400764A14 /* AVVdeioFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F0658F208720C400764A14 /* AVVdeioFileParser.swift */; };
 		12F7297B2048F13E00724E41 /* AVCapturePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F7297A2048F13E00724E41 /* AVCapturePreviewView.swift */; };
 		2E822DECC72442B886D24A9A /* Pods_DMLiveTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6661C393E9A299721DC48A80 /* Pods_DMLiveTest.framework */; };
 		A81229C9F4483F0BB2DE8625 /* Pods_DMLiveTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC378ACBAD8FE4BE04E80063 /* Pods_DMLiveTestTests.framework */; };
@@ -43,6 +54,17 @@
 		120E64CD202C3DB100424585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120E64D6202C403C00424585 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		120E64D8202C482C00424585 /* AVCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureViewController.swift; sourceTree = "<group>"; };
+		122D9CD5206F88C000A03AF7 /* AVSampleBufferDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSampleBufferDisplayView.swift; sourceTree = "<group>"; };
+		122D9CD8206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVVdeioDisplayViewController.swift; sourceTree = "<group>"; };
+		122D9CDA206F97E000A03AF7 /* AVVdeioDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVVdeioDecoder.swift; sourceTree = "<group>"; };
+		1268EB5820EB704400C56DED /* mtv.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = mtv.h264; sourceTree = "<group>"; };
+		1268EB6620EF659D00C56DED /* asd.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = asd.h264; sourceTree = "<group>"; };
+		1268EB6C20EF78A800C56DED /* demo.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = demo.h264; sourceTree = "<group>"; };
+		127B2B89205FB70C00F057FE /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		1284104720F49D1000AAFC64 /* abc.h264 */ = {isa = PBXFileReference; lastKnownFileType = file; path = abc.h264; sourceTree = "<group>"; };
+		128E7B152057B92C009E3D40 /* AVVdeioEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVVdeioEncoder.swift; sourceTree = "<group>"; };
+		12D0F2FF204E77B70026D5B3 /* AVCaptureExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureExtractor.swift; sourceTree = "<group>"; };
+		12F0658F208720C400764A14 /* AVVdeioFileParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVVdeioFileParser.swift; sourceTree = "<group>"; };
 		12F7297A2048F13E00724E41 /* AVCapturePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCapturePreviewView.swift; sourceTree = "<group>"; };
 		6661C393E9A299721DC48A80 /* Pods_DMLiveTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMLiveTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC378ACBAD8FE4BE04E80063 /* Pods_DMLiveTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DMLiveTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +122,17 @@
 				120E64D6202C403C00424585 /* MainViewController.swift */,
 				120E64D8202C482C00424585 /* AVCaptureViewController.swift */,
 				12F7297A2048F13E00724E41 /* AVCapturePreviewView.swift */,
+				122D9CD5206F88C000A03AF7 /* AVSampleBufferDisplayView.swift */,
+				122D9CD8206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift */,
+				12D0F2FF204E77B70026D5B3 /* AVCaptureExtractor.swift */,
+				128E7B152057B92C009E3D40 /* AVVdeioEncoder.swift */,
+				122D9CDA206F97E000A03AF7 /* AVVdeioDecoder.swift */,
+				12F0658F208720C400764A14 /* AVVdeioFileParser.swift */,
+				1268EB6620EF659D00C56DED /* asd.h264 */,
+				1284104720F49D1000AAFC64 /* abc.h264 */,
+				1268EB5820EB704400C56DED /* mtv.h264 */,
+				1268EB6C20EF78A800C56DED /* demo.h264 */,
+				122D9CD7206F8AA300A03AF7 /* extension */,
 				120E64BA202C3DB000424585 /* Main.storyboard */,
 				120E64BD202C3DB000424585 /* Assets.xcassets */,
 				120E64BF202C3DB000424585 /* LaunchScreen.storyboard */,
@@ -115,6 +148,14 @@
 				120E64CD202C3DB100424585 /* Info.plist */,
 			);
 			path = DMLiveTestTests;
+			sourceTree = "<group>";
+		};
+		122D9CD7206F8AA300A03AF7 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				127B2B89205FB70C00F057FE /* UIWindow+Extension.swift */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		3E8B6DBE749193B7AB1B0CE6 /* Pods */ = {
@@ -150,6 +191,7 @@
 				120E64B1202C3DB000424585 /* Resources */,
 				7D1E48F8F90DC232F7994F6F /* [CP] Embed Pods Frameworks */,
 				4785AC5CBA4E4B7B2571F504 /* [CP] Copy Pods Resources */,
+				1299633120FC740000AA9C26 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -227,7 +269,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				120E64C1202C3DB000424585 /* LaunchScreen.storyboard in Resources */,
+				1268EB6720EF659E00C56DED /* asd.h264 in Resources */,
+				1268EB5920EB704400C56DED /* mtv.h264 in Resources */,
 				120E64BE202C3DB000424585 /* Assets.xcassets in Resources */,
+				1284104820F49D1000AAFC64 /* abc.h264 in Resources */,
+				1268EB6D20EF78A800C56DED /* demo.h264 in Resources */,
 				120E64BC202C3DB000424585 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +288,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1299633120FC740000AA9C26 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"$SRCROOT\"";
+		};
 		3114D22688B6D6F4008CAA9E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -348,10 +407,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				127B2B8A205FB70C00F057FE /* UIWindow+Extension.swift in Sources */,
+				12F06590208720C400764A14 /* AVVdeioFileParser.swift in Sources */,
 				12F7297B2048F13E00724E41 /* AVCapturePreviewView.swift in Sources */,
 				120E64D7202C403C00424585 /* MainViewController.swift in Sources */,
 				120E64B9202C3DB000424585 /* ViewController.swift in Sources */,
 				120E64D9202C482C00424585 /* AVCaptureViewController.swift in Sources */,
+				12D0F300204E77B70026D5B3 /* AVCaptureExtractor.swift in Sources */,
+				122D9CD9206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift in Sources */,
+				122D9CD6206F88C000A03AF7 /* AVSampleBufferDisplayView.swift in Sources */,
+				128E7B162057B92C009E3D40 /* AVVdeioEncoder.swift in Sources */,
+				122D9CDB206F97E000A03AF7 /* AVVdeioDecoder.swift in Sources */,
 				120E64B7202C3DB000424585 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -493,7 +559,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
