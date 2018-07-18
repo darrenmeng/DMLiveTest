@@ -9,6 +9,12 @@
 import UIKit
 import VideoToolbox
 
+
+protocol VideoEncoderDelegate: class {
+    func didSetFormatDescription(video formatDescription: CMFormatDescription?)
+    func sampleOutput(video sampleBuffer: CMSampleBuffer)
+}
+
 class AVVdeioEncoder: NSObject {
     
     fileprivate var NALUHeader: [UInt8] = [0, 0, 0, 1]
@@ -57,10 +63,8 @@ class AVVdeioEncoder: NSObject {
             
             if self.compressionSession == nil {
                 
-//                let width = CVPixelBufferGetWidth(pixelbuffer)
-//                let height = CVPixelBufferGetHeight(pixelbuffer)
-                let width = 480
-                let height = 640
+                let width = CVPixelBufferGetWidth(pixelbuffer)
+                let height = CVPixelBufferGetHeight(pixelbuffer)
                 print("width: \(width), height: \(height)")
                 
                 VTCompressionSessionCreate(kCFAllocatorDefault,
@@ -82,13 +86,12 @@ class AVVdeioEncoder: NSObject {
                 // 設置實時編碼
                 VTSessionSetProperty(session, kVTCompressionPropertyKey_RealTime, true as CFTypeRef)
                 // 設置期望幀數，每秒多少幀
-                VTSessionSetProperty(session, kVTCompressionPropertyKey_ExpectedFrameRate, 10 as CFTypeRef)
+                VTSessionSetProperty(session, kVTCompressionPropertyKey_ExpectedFrameRate, NSNumber(value: 30))
                 //設置碼率，碼率越高，則畫面越清晰，碼率高有利於還原原始畫面,但是也不利於傳輸
                 //一个像素如果有alfa通道的话应该是4个字节，没有alfa通道是3个字节，后面乘以8是因为每个字节有8位。
-                VTSessionSetProperty(session, kVTCompressionPropertyKey_AverageBitRate, width * height * 3 * 4 * 8 as CFTypeRef)
+                VTSessionSetProperty(session, kVTCompressionPropertyKey_AverageBitRate, width * height * 3 * 4 as CFTypeRef)
                 //設置碼率的限制
-                //VTSessionSetProperty(session, kVTCompressionPropertyKey_DataRateLimits, width * height * 3 * 4 as CFTypeRef)
-                VTSessionSetProperty(session, kVTCompressionPropertyKey_DataRateLimits, [width * height * 3 * 4, 1] as CFArray)
+                VTSessionSetProperty(session, kVTCompressionPropertyKey_DataRateLimits, [width * height * 3 * 4 / 8, 1] as CFArray)
                 //設置關鍵幀間隔
                 VTSessionSetProperty(session, kVTCompressionPropertyKey_MaxKeyFrameInterval, 10 as CFTypeRef)
                 //VTSessionSetProperty(session, kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration, NSNumber(value: 10.0))
@@ -127,10 +130,10 @@ class AVVdeioEncoder: NSObject {
             let desc = CMSampleBufferGetFormatDescription(sampleBuffer)
             let extensions = CMFormatDescriptionGetExtensions(desc!)
             print("extensions: \(extensions!)")
-        
+
             let sampleCount = CMSampleBufferGetNumSamples(sampleBuffer)
             print("sample count: \(sampleCount)")
-        
+
             let dataBuffer = CMSampleBufferGetDataBuffer(sampleBuffer)!
             var length: Int = 0
             var dataPointer: UnsafeMutablePointer<Int8>?
@@ -138,7 +141,6 @@ class AVVdeioEncoder: NSObject {
             print("length: \(length), dataPointer: \(dataPointer!)")
         
         // let vc: ViewController = Unmanaged.fromOpaque(outputCallbackRefCon!).takeUnretainedValue()
-        
         let encoder:AVVdeioEncoder = unsafeBitCast(outputCallbackRefCon, to: AVVdeioEncoder.self)
         
         // 透過Attachments裡包含幀圖像的一些屬性去判斷幀
@@ -256,17 +258,15 @@ class AVVdeioEncoder: NSObject {
                 return
             }
             
-            
+             print("encode timestamp\(sampleBuffer.presentationTimeStamp)")
             //取的該偵的時間戳
-            let presentationTimestamp = CMSampleBufferGetOutputPresentationTimeStamp(sampleBuffer)
-            //取的該偵的持續時間
-            let frameID = self.frame! + 1
-            let timestamp  = CMTimeMake(frameID, 1000)
-            let duration = CMSampleBufferGetOutputDuration(sampleBuffer)
+            //let presentationTimestamp = CMSampleBufferGetOutputPresentationTimeStamp(sampleBuffer)
+            //let duration = CMSampleBufferGetOutputDuration(sampleBuffer)
             //設置同步異步處理
             var flags:VTEncodeInfoFlags = VTEncodeInfoFlags()
             //開始Encode
-            let status = VTCompressionSessionEncodeFrame(session, image, presentationTimestamp , kCMTimeInvalid, nil, nil, &flags)
+            // let status = VTCompressionSessionEncodeFrame(session, image, timestamp , kCMTimeInvalid, nil, nil, &flags)
+             let status = VTCompressionSessionEncodeFrame(session, image, sampleBuffer.presentationTimeStamp , sampleBuffer.duration, nil, nil, &flags)
             if status != noErr {
                 //show msg
                  print("error: \(status)")
@@ -287,10 +287,12 @@ class AVVdeioEncoder: NSObject {
 }
 
 extension AVVdeioEncoder {
-    enum SessionPar {
+    enum SessionDefSet {
         static let frameInterval: Int = 10
         static let bitRate: Int = 302
-        static let defaultFooterHeight: CGFloat = 50
+        static let defaultWidth: Int32 = 480
+        static let defaultHeight: Int32 = 640
+        static let defaultBitrate: UInt32 = 480 * 640
     }
 }
 

@@ -10,7 +10,6 @@ import UIKit
 import VideoToolbox
 import AVFoundation
 
-
 class AVVdeioDisplayViewController: UIViewController {
     
     var formatDesc: CMVideoFormatDescription?
@@ -22,14 +21,7 @@ class AVVdeioDisplayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let _CMTimebasePointer = UnsafeMutablePointer<CMTimebase?>.allocate(capacity: 1)
-        let status = CMTimebaseCreateWithMasterClock( kCFAllocatorDefault, CMClockGetHostTimeClock(),  _CMTimebasePointer )
         decoder.delegate = self
-       // layer.controlTimebase = _CMTimebasePointer.pointee
-        // Do any additional setup after loading the view.
-        //initView()
-        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -103,11 +95,6 @@ extension AVVdeioDisplayViewController : AVVdieoDecoderDelegate {
     }
     
     func decodeCMSampleBufferOutput(decodeOutput sampleBuffer: CMSampleBuffer, from decoder: AVVdeioDecoder) {
-        
-        
-        //self.videoLayer?.enqueue(sampleBuffer)
         self.sampleDisplayView.displayLayer.enqueue(sampleBuffer)
-
-        //self.sampleDisplayView.displayLayer.enqueue(sampleBuffer)
     }
 }

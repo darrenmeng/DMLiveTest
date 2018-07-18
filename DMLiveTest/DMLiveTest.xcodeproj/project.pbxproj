@@ -15,6 +15,7 @@
 		120E64CC202C3DB100424585 /* DMLiveTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E64CB202C3DB100424585 /* DMLiveTestTests.swift */; };
 		120E64D7202C403C00424585 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E64D6202C403C00424585 /* MainViewController.swift */; };
 		120E64D9202C482C00424585 /* AVCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120E64D8202C482C00424585 /* AVCaptureViewController.swift */; };
+		121A00FB20FCA91F002D16C7 /* CMSampleBuffer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A00FA20FCA91E002D16C7 /* CMSampleBuffer+Extension.swift */; };
 		122D9CD6206F88C000A03AF7 /* AVSampleBufferDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D9CD5206F88C000A03AF7 /* AVSampleBufferDisplayView.swift */; };
 		122D9CD9206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D9CD8206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift */; };
 		122D9CDB206F97E000A03AF7 /* AVVdeioDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122D9CDA206F97E000A03AF7 /* AVVdeioDecoder.swift */; };
@@ -54,6 +55,7 @@
 		120E64CD202C3DB100424585 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		120E64D6202C403C00424585 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		120E64D8202C482C00424585 /* AVCaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureViewController.swift; sourceTree = "<group>"; };
+		121A00FA20FCA91E002D16C7 /* CMSampleBuffer+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CMSampleBuffer+Extension.swift"; sourceTree = "<group>"; };
 		122D9CD5206F88C000A03AF7 /* AVSampleBufferDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVSampleBufferDisplayView.swift; sourceTree = "<group>"; };
 		122D9CD8206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVVdeioDisplayViewController.swift; sourceTree = "<group>"; };
 		122D9CDA206F97E000A03AF7 /* AVVdeioDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVVdeioDecoder.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				127B2B89205FB70C00F057FE /* UIWindow+Extension.swift */,
+				121A00FA20FCA91E002D16C7 /* CMSampleBuffer+Extension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				120E64D9202C482C00424585 /* AVCaptureViewController.swift in Sources */,
 				12D0F300204E77B70026D5B3 /* AVCaptureExtractor.swift in Sources */,
 				122D9CD9206F8CBD00A03AF7 /* AVVdeioDisplayViewController.swift in Sources */,
+				121A00FB20FCA91F002D16C7 /* CMSampleBuffer+Extension.swift in Sources */,
 				122D9CD6206F88C000A03AF7 /* AVSampleBufferDisplayView.swift in Sources */,
 				128E7B162057B92C009E3D40 /* AVVdeioEncoder.swift in Sources */,
 				122D9CDB206F97E000A03AF7 /* AVVdeioDecoder.swift in Sources */,

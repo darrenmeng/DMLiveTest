@@ -288,7 +288,27 @@ class AVCaptureExtractor: NSObject {
 extension AVCaptureExtractor: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        //print("samplebuffer\(sampleBuffer)")
+        print("samplebuffer\(sampleBuffer)")
+        let pixelbiffer = CMSampleBufferGetImageBuffer(sampleBuffer)
+        
+        var videoInfo: CMVideoFormatDescription? = nil
+        CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelbiffer!, &videoInfo)
+        let ex = CMFormatDescriptionGetExtensions(videoInfo!)
+        print("ex:\(ex!)")
+        
+//        let desc = CMSampleBufferGetFormatDescription(sampleBuffer)
+//        let extensions = CMFormatDescriptionGetExtensions(desc!)
+//        print("extensions: \(extensions!)")
+//
+//        let sampleCount = CMSampleBufferGetNumSamples(sampleBuffer)
+//        print("sample count: \(sampleCount)")
+//
+//        let dataBuffer = CMSampleBufferGetDataBuffer(sampleBuffer)
+//        var length: Int = 0
+//        var dataPointer: UnsafeMutablePointer<Int8>?
+//        CMBlockBufferGetDataPointer(dataBuffer!, 0, nil, &length, &dataPointer)
+//        print("length: \(length), dataPointer: \(dataPointer!)")
+        
         print(output)
         if let delegate = self.delegate {
             delegate.captureOutput(_ : output, didOutput: sampleBuffer, from: connection)

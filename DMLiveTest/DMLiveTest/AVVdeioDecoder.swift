@@ -26,10 +26,10 @@ class AVVdeioDecoder: NSObject {
     private var filePath:String!
     private var videoParser:AVVdeioFileParser?
     
-    var spsSize: Int = 0
-    var ppsSize: Int = 0
-    var sps: Array<UInt8>?
-    var pps: Array<UInt8>?
+    private var spsSize: Int = 0
+    private var ppsSize: Int = 0
+    private var sps: Array<UInt8>?
+    private var pps: Array<UInt8>?
     
     override init() {
         super.init()
@@ -39,9 +39,7 @@ class AVVdeioDecoder: NSObject {
     private func settingDisplayLink () {
         //透過CADisplayLink 更新videoFrame
         displayLink = CADisplayLink.init(target: self, selector: #selector(updateVideoFrame))
-        //displayLink?.frameInterval = 10
-        displayLink?.preferredFramesPerSecond = 60
-        //displayLink?.preferredFramesPerSecond = 90
+        //displayLink?.preferredFramesPerSecond = 60
         displayLink?.isPaused = true;
         displayLink?.add(to:RunLoop.current , forMode: RunLoopMode.commonModes)
     }
@@ -75,10 +73,10 @@ class AVVdeioDecoder: NSObject {
     }
     
     private var finshDecompressionCallback:VTDecompressionOutputCallback = {(_ decompressionOutputRefCon: UnsafeMutableRawPointer?, _ sourceFrameRefCon: UnsafeMutableRawPointer?, _ status: OSStatus, _ infoFlags: VTDecodeInfoFlags, _ imageBuffer: CVImageBuffer?, _ presentationTimeStamp: CMTime, _ presentationDuration: CMTime)  in
-        
+        //print("decode timestamp\(presentationTimeStamp)")
+         
         let decoder : AVVdeioDecoder = unsafeBitCast(decompressionOutputRefCon, to: AVVdeioDecoder.self)
         if status == noErr {
-            // do something with your resulting CVImageBufferRef that is your decompressed frame
             if let delegate = decoder.delegate {
                 decoder.delegate?.decodeCVImageBufferOutput(decodeOutput: imageBuffer! , from: decoder)
             }
@@ -214,28 +212,22 @@ class AVVdeioDecoder: NSObject {
                                            1, 0, nil,
                                            1, sampleSizeArray,
                                            &sampleBuffer)
-        
+       
         if let buffer = sampleBuffer, let session = decompressionSession, status == kCMBlockBufferNoErr {
             
             let attachments:CFArray? = CMSampleBufferGetSampleAttachmentsArray(buffer, true)
             if let attachmentArray = attachments {
                 let dic = unsafeBitCast(CFArrayGetValueAtIndex(attachmentArray, 0), to: CFMutableDictionary.self)
-                
                 CFDictionarySetValue(dic,
                                      Unmanaged.passUnretained(kCMSampleAttachmentKey_DisplayImmediately).toOpaque(),
                                      Unmanaged.passUnretained(kCFBooleanTrue).toOpaque())
             }
             
+            
+             //print("samplebuffer decode timestamp:\(buffer.presentationTimeStamp)")
+            
             //直接使用AVSampleBufferDisplayLayer 播放
             self.displayDecodedFrame(buffer)
-            
-            //diaplay with AVSampleBufferDisplayLayer
-//            self.videoLayer?.enqueue(buffer)
-//
-//            DispatchQueue.main.async(execute: {
-//                self.videoLayer?.setNeedsDisplay()
-//            })
-
             
             //videoToolBox decode
             var flagOut = VTDecodeInfoFlags(rawValue: 0)

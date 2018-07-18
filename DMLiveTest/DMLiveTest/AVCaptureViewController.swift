@@ -12,7 +12,7 @@ import AVFoundation
 class AVCaptureViewController: UIViewController {
 
     private var avExtractor: AVCaptureExtractor?
-    private var avEncoder: AVVdeioEncoder?
+    lazy var avEncoder: AVVdeioEncoder = AVVdeioEncoder()
     
     @IBOutlet weak var previewView: AVCapturePreviewView!
     
@@ -29,7 +29,7 @@ class AVCaptureViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        avEncoder?.stopEncoder()
+        avEncoder.stopEncoder()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -60,8 +60,8 @@ class AVCaptureViewController: UIViewController {
 
 extension AVCaptureViewController : AVCaptureExtractorDelegate {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        avEncoder?.setupVideoSession(samplebuffer: sampleBuffer)
-        avEncoder?.startEncdoer(sampleBuffer: sampleBuffer)
+        avEncoder.setupVideoSession(samplebuffer: sampleBuffer)
+        avEncoder.startEncdoer(sampleBuffer: sampleBuffer)
     }    
 }
 
